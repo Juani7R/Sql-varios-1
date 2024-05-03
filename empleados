@@ -1,0 +1,107 @@
+SHOW databases;
+USE PROYECTOJH; 
+CREATE DATABASE PROYECTOJH;
+SHOW TABLES;
+CREATE database PROYECTOLUNES;
+DROP database proyectolunes;
+SELECT database();
+SHOW TABLES; 
+create TABLE PRUEBA
+(
+ID INT,
+MARCA varchar(30),
+MODELO varchar(30)
+);
+insert INTO PRUEBA(ID, MARCA, MODELO)
+VALUES            (1, 'FORD', 'FIESTA');
+SELECT * FROM PRUEBA; 
+SHOW tables;
+
+
+
+CREATE TABLE EMPLEADOS(
+ID INT,
+DNI INT,
+NOMBRE varchar(30) NULL,
+TELEFONO VARCHAR(30),
+SUELDO FLOAT UNSIGNED
+);
+DROP TABLE EMPLEADOS;
+
+
+drop table empleados;
+
+SELECT * FROM EMPLEADOS; 
+-- 
+INSERT INTO EMPLEADOS(ID, DNI,  TELEFONO, SUELDO)
+VALUES               (1, 303030,  '654789', 150000.25);
+INSERT INTO EMPLEADOS(NOMBRE,  TELEFONO, SUELDO, DNI, ID)
+VALUES               ('ANALIA', '321457', 160000, 875469, 2);
+INSERT INTO EMPLEADOS(ID, DNI, NOMBRE)
+VALUES               (3, 365478, 'PEDRO');
+
+create table empleados2
+(
+id int auto_increment primary key,
+dni int unsigned not null,
+nombre varchar(30)not null,
+sueldo double 
+);
+desc empleados2;
+insert into empleados2(dni, nombre, sueldo)
+values                (589746, 'pepe', 120000);
+select * from empleados2; 
+create table empleados3
+(
+id int auto_increment primary key,
+dni int unsigned not null unique key,
+nombre varchar(30)not null,
+sueldo double 
+);
+insert into empleados3(dni, nombre, sueldo)
+values                (589746, 'pepe', 120000);
+select * from empleados3;
+INSERT INTO EMPLEADOS(ID, DNI,  TELEFONO, SUELDO)
+VALUES               (1, 303030,  '654789', 150000.25);
+
+SELECT * FROM EMPLEADOS;
+INSERT INTO EMPLEADOS(ID, DNI,  NOMBRE, TELEFONO, SUELDO)
+VALUES               (1, 303030, NULL, '654789', 150000.25);
+DESC EMPLEADOS;
+SHOW TABLES;
+DESCRIBE EMPLEADOS;
+
+
+ALTER TABLE EMPLEADOS ADD COLUMN DIRECCION VARCHAR(30) NOT NULL;
+ALTER TABLE EMPLEADOS ADD EMAIL VARCHAR(30) NOT NULL;
+ALTER TABLE EMPLEADOS DROP COLUMN EMAIL;
+DESC EMPLEADOS;
+SELECT * FROM EMPLEADOS;
+INSERT INTO EMPLEADOS(ID, DNI,  NOMBRE, TELEFONO, SUELDO)
+VALUES               (1, 303030, 'PEDRO', '654789', -200000);
+-- MODIFY CAMBIA EL TIPO DE DATO
+ALTER TABLE EMPLEADOS MODIFY SUELDO INT UNSIGNED;
+-- EL CHANGE MODIFICA LA PALABRA
+ALTER TABLE EMPLEADOS CHANGE SUELDO SALARIO INT UNSIGNED NOT NULL;  
+ALTER TABLE EMPLEADOS MODIFY SALARIO INT UNSIGNED AFTER DNI; 
+
+CREATE TABLE EMPLEADOS10(
+ID INT,
+DNI INT,
+NOMBRE varchar(30),
+TELEFONO VARCHAR(30),
+SUELDO FLOAT UNSIGNED
+);
+
+
+
+desc empleados10;
+
+alter table empleados10 modify id int primary key auto_increment;
+alter table empleados10 modify nombre varchar(30) not null;
+alter table empleados10 modify telefono varchar(30) not null; 
+alter table empleados10 modify sueldo float unsigned after nombre;  
+alter table empleados10 add column numero int UNSIGNED UNIQUE KEY; 
+alter table empleados10 modify id int ;
+alter table empleados10 drop primary key;
+alter table empleados10 add primary key (dni); 
